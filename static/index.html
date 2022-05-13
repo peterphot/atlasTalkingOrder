@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .row {
+                display: flex;
+            }
+
+            .column {
+                flex: 50%;
+            }
+
+            table {
+                border-spacing: 40px;
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+            $.get("/getTalkingOrder", (data, status) => {
+                $("#order_display").text(JSON.stringify(JSON.parse(data), null, 2));
+            });
+        </script>
+        <title>Team Talking Order</title>
+    </head>
+
+    <body>
+    <div class="column">
+        <h2>Talking Order</h2>
+        <pre id="order_display"> </pre>
+    </div>
+    </body>
+</html>
